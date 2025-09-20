@@ -42,7 +42,9 @@ java bank.ease.Login
 
 ## Folder Structure
 
+```
 /bank/ease/
 |-- Login.java
 /icons/
 |-- logo.jpg
+```
