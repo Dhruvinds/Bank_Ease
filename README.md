@@ -48,3 +48,18 @@ java bank.ease.Login
 /icons/
 |-- logo.jpg
 ```
+
+## External Libraries
+
+This project requires the following external JARs:
+
+- JDateChooser (com.toedter.calendar.JDateChooser)
+
+### How to Add External JARs in VS Code
+
+1. Download the JAR (e.g., JDateChooser.jar).
+2. Create a folder named `lib` in your project root (if it does not exist).
+3. Place the JAR file in the `lib` folder.
+4. Open the Java Dependencies panel and add the JAR using the "+" button, or update your classpath/referencedLibraries setting.
+
+If you're using Maven/Gradle, add the dependency in `pom.xml` or `build.gradle` instead.
