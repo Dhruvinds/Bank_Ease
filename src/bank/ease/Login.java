@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class Login extends JFrame implements ActionListener {
 
-    JButton login, register, clear;
+    JButton login, signup, clear;
     JTextField cardTextField;
     JPasswordField pinTextField;
 
@@ -62,12 +62,12 @@ public class Login extends JFrame implements ActionListener {
         clear.setForeground(Color.WHITE);
         clear.addActionListener(this);
 
-        register = new JButton("SIGN UP");
-        register.setBounds(300, 350, 230, 30);
-        add(register);
-        register.setBackground(Color.BLACK);
-        register.setForeground(Color.WHITE);
-        register.addActionListener(this);
+        signup = new JButton("SIGN UP");
+        signup.setBounds(300, 350, 230, 30);
+        add(signup);
+        signup.setBackground(Color.BLACK);
+        signup.setForeground(Color.WHITE);
+        signup.addActionListener(this);
 
         getContentPane().setBackground(Color.WHITE);
 
@@ -82,7 +82,7 @@ public class Login extends JFrame implements ActionListener {
             pinTextField.setText("");
         } else if (ae.getSource() == login) {
 
-        } else if (ae.getSource() == register) {
+        } else if (ae.getSource() == signup) {
 
         }
     }
