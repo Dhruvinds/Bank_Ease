@@ -1,42 +1,57 @@
 # Bank_Ease
 
-Simplified banking operations
+A simple **Java Swing-based Banking System** that demonstrates user account signup and ATM login functionality. The application simulates GUI operations for banking workflows with form-based user input, database connectivity, and a clean interface.
 
-# Bank.Ease ATM Login (Java Swing)
+### Features
 
-This project is a Java Swing-based GUI application that simulates a login interface for an Automated Teller Machine (ATM) as part of a banking system. The graphical interface is implemented using Java Swing and AWT libraries.
+- **ATM Login** with Card Number & PIN fields (GUI-based authentication)
+- **Account Signup Form** with personal details (Name, DOB, Gender, Email, Address, etc.)
+- **Form Validation** for required fields during signup
+- **Integration with MySQL database** using JDBC
+- Modern GUI with **Swing, AWT**, and **external date picker (JDateChooser)**
 
-## Features
-
-- Card Number and PIN Input fields for authentication
-- Sign In, Clear, and Sign Up buttons with event handling
-- Modern and intuitive interface using Java Swing components
-- Easy to understand and customize for learning purposes
-
-## Technologies Used
+### Technologies Used
 
 - Java 8+
 - Swing (`javax.swing.*`)
 - AWT (`java.awt.*`)
+- MySQL with JDBC (`java.sql.*`)
+- External Library: [toedter JCalendar](https://toedter.com/jcalendar/) (`JDateChooser`)
 
-## How It Works
+### How It Works
 
-- The main window allows users to input their card number and PIN.
-- Clicking **Sign In** would trigger future authentication logic.
-- **Clear** button resets both input fields for a new entry.
-- **Sign Up** is for new user registration (future implementation).
+1. **Signup Form (`SignupOne.java`)**
 
-## Getting Started
+   - Collects user details like name, father’s name, date of birth, gender, email, marital status, address, city, state, and pincode.
+   - Generates a unique **Application Form Number** for each user.
+   - Validates mandatory fields (e.g., Name).
+   - Stores all data in a MySQL database table (`signup`).
 
-### Clone the repository:
+2. **Database Connection (`Conn.java`)**
+
+   - Provides JDBC connectivity using `DriverManager.getConnection()`.
+   - Encapsulates SQL query execution through `Statement`.
+
+3. **ATM Login (`Login.java`)**
+   - GUI for card number and PIN entry.
+   - Buttons for **Sign In**, **Clear**, and **Sign Up**.
+   - Placeholder for future authentication logic with database.
+
+### Getting Started
+
+#### Clone the Repository
 
 git clone https://github.com/your-username/bank-ease-atm-login.git
 
 ### Navigate to the project directory and compile:
 
-javac bank/ease/Login.java
+javac bank/ease/SignupOne.java bank/ease/Conn.java bank/ease/Login.java
 
 ### Run the application:
+
+java bank.ease.SignupOne
+
+(or)
 
 java bank.ease.Login
 
@@ -44,22 +59,35 @@ java bank.ease.Login
 
 ```
 /bank/ease/
-|-- Login.java
+│-- Login.java
+│-- SignupOne.java
+│-- Conn.java
 /icons/
-|-- logo.jpg
+└── logo.jpg
+/lib/
+└── jcalendar-x.x.x.jar (or JDateChooser.jar)
 ```
 
-## External Libraries
+### External Libraries
 
 This project requires the following external JARs:
 
-- JDateChooser (com.toedter.calendar.JDateChooser)
+- **JDateChooser** (part of [JCalendar](https://toedter.com/jcalendar/))
 
-### How to Add External JARs in VS Code
+#### Adding External JARs in VS Code
 
-1. Download the JAR (e.g., JDateChooser.jar).
-2. Create a folder named `lib` in your project root (if it does not exist).
-3. Place the JAR file in the `lib` folder.
-4. Open the Java Dependencies panel and add the JAR using the "+" button, or update your classpath/referencedLibraries setting.
+1. Download the `JDateChooser.jar`.
+2. Create a folder named `lib` in your project root.
+3. Place the JAR inside `lib`.
+4. Add it to your classpath:
+   - Open VS Code
+   - Go to **Java Projects** → **Referenced Libraries** → Click **+** → Select the JAR
+5. If using Maven/Gradle, add the proper dependency instead.
+
+### Future Enhancements
+
+- Implement Login authentication by verifying card number & PIN from the database.
+- Add multi-page signup for additional banking details.
+- Integrate transaction features (Deposit, Withdraw, Balance Enquiry, Mini Statement).
 
 If you're using Maven/Gradle, add the dependency in `pom.xml` or `build.gradle` instead.
